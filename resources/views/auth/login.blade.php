@@ -26,7 +26,8 @@
         <div class="card shadow p-4" style="width: 100%; max-width: 400px;">
             <h3 class="text-center mb-4">Login</h3>
 
-            <form id="loginForm" method="POST">
+            <form id="loginForm" method="POST" action="{{ url('login') }}">
+                @csrf
                 <div class="mb-3">
                     <label for="email" class="form-label">Email address</label>
                     <input type="email" name="email" class="form-control" id="email" required>
@@ -53,45 +54,45 @@
 </body>
 
 <script>
-    $(function() {
-        $('#loginForm').submit(function(e) {
-            e.preventDefault();
+    // $(function() {
+    //     $('#loginForm').submit(function(e) {
+    //         e.preventDefault();
 
-            $('#spinner').show();
-            $('#errorText').text('');
+    //         $('#spinner').show();
+    //         $('#errorText').text('');
 
-            let email = document.getElementById("email").value;
-            let password = document.getElementById("password").value;
+    //         let email = document.getElementById("email").value;
+    //         let password = document.getElementById("password").value;
 
-            $.ajax({
-                url: 'http://192.168.100.14:8005/api/v1/auth/login',
-                method: 'POST',
-                data: JSON.stringify({
-                    email: email,
-                    password: password,
-                }),
-                contentType: 'application/json',
-                success: function(response) {
-                    $('#spinner').hide();
-                    // window.location.href = '/dashboard'; 
-                },
-                error: function(xhr) {
-                    $('#spinner').hide();
-                    let msg = 'Login gagal. Silakan coba lagi.';
-                    let error = xhr.responseJSON.errors;
+    //         $.ajax({
+    //             url: 'http://192.168.100.14:8005/api/v1/auth/login',
+    //             method: 'POST',
+    //             data: JSON.stringify({
+    //                 email: email,
+    //                 password: password,
+    //             }),
+    //             contentType: 'application/json',
+    //             success: function(response) {
+    //                 $('#spinner').hide();
+    //                 // window.location.href = '/dashboard'; 
+    //             },
+    //             error: function(xhr) {
+    //                 $('#spinner').hide();
+    //                 let msg = 'Login gagal. Silakan coba lagi.';
+    //                 let error = xhr.responseJSON.errors;
 
-                    const firstKey = Object.keys(error)[0];
+    //                 const firstKey = Object.keys(error)[0];
 
-                    const firstErrorMessage = error[firstKey][0];
+    //                 const firstErrorMessage = error[firstKey][0];
 
-                    if (xhr.responseJSON != null) {
-                        msg = firstErrorMessage;
-                    }
-                    $('#errorText').text(msg);
-                }
-            });
-        });
-    });
+    //                 if (xhr.responseJSON != null) {
+    //                     msg = firstErrorMessage;
+    //                 }
+    //                 $('#errorText').text(msg);
+    //             }
+    //         });
+    //     });
+    // });
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
