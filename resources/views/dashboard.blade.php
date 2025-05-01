@@ -3,6 +3,11 @@
 @section('content')
 
 <div class="bg-white card-box shadow-sm text-center mb-5">
+    
+    
+    <div class="col-md-3 justify-content-center align-item-center">
+            <img src="{{ asset('Assets/logo/mindra.jpg') }}" alt="" class="img-fluid mb-4 p-5">
+    </div>
     <div class="col-md-3">
         <div class="bg-white card-box-title border text-center">
             <h5>Dashboard Overview</h5>
@@ -32,7 +37,7 @@
 </div>
     <div class="row mb-4">
     <div class="col-md-4 mb-4">
-        <div class="bg-white card-box shadow-sm" style="height: 400px">
+        <div class="bg-white card-box shadow-sm">
             <!-- Zoom Requests Card -->
     <!-- Header -->
         <div class="d-flex align-items-center mb-3">
@@ -66,7 +71,7 @@
     </div>
     
     <div class="col-md-4 mb-4">
-        <div class="bg-white card-box shadow-sm" style="height: 400px">
+        <div class="bg-white card-box shadow-sm">
             <!-- Zoom Requests Card -->
     <!-- Header -->
         <div class="d-flex align-items-center mb-3">
@@ -100,7 +105,7 @@
     </div>
 
     <div class="col-md-4">
-        <div class="bg-white card-box shadow-sm" style="height: 400px">
+        <div class="bg-white card-box shadow-sm">
             <!-- Zoom Requests Card -->
     <!-- Header -->
         <div class="d-flex align-items-center mb-3">
